@@ -1,0 +1,128 @@
+
+.header {
+  width: 100%;
+   margin: 29px 0 34px 0;
+}
+
+.nav {
+  @include flex-centr;
+}
+
+.header-container {
+  padding: 16px 0;
+  position: relative;
+
+}
+
+.nav-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 68px;
+
+ 
+
+    @media (max-width: 1200px) {
+        gap: 46px;
+    }
+
+    @media (max-width: 992px) { 
+        gap: 24px;
+     }
+
+    @media (max-width: 768px) { 
+        display: none;
+     }
+}
+
+.nav-item {
+    font-size: 11px;
+    line-height: 22px;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    color: $primary-color;
+
+    &:hover {
+      color: $color-hover;
+    }
+    @media (max-width: 991px) {
+      display: none;
+  }
+}
+
+.hamburger {
+    position: absolute;
+    top: 0;
+    right: 2%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 47px;
+    background-color: #000;
+    cursor: pointer;
+    user-select: none;
+    z-index: 2;
+   
+    @media (max-width: 991px) {
+        display: flex;
+    }
+  }
+  
+  .line {
+    width: 26px;
+    height: 3px;
+    
+    background-color: #fff;
+    margin: 2px 0;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .hamburger.open .line1 {
+    transform: rotate(-45deg) translate(-5px, 5px);
+  }
+  
+  .hamburger.open .line2 {
+    opacity: 0;
+  }
+  
+  .hamburger.open .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  .hamburger-nav {
+    display: none;
+    width: 182px;
+    padding: 10px 13px;
+    
+  }
+  .hamburger-nav-item {
+    font-size: 11px;
+    line-height: 22px;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    color: $primary-color;
+    margin-bottom: 10px; 
+      &:last-child {
+        margin-bottom: 0;
+      }
+        &:hover {
+          color: $color-hover;
+      }
+  }
+
+  .hamburger-nav.active {
+    position: absolute;
+    top: 47px;
+    right: 2%;
+    display: block;
+    background-color: #F5F5F5;
+     animation: fade .5s;
+  }
+
+  @keyframes fade {
+    from{transform: translateX(100px); opacity: 0;}
+    to {transform: translateX(0px); opacity: 1;}
+  }
+  
