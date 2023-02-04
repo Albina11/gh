@@ -9,7 +9,7 @@ const rigger = require('gulp-rigger');
 const imagemin = require("gulp-imagemin");
 const del = require("del");
 const cleanCSS = require('gulp-clean-css');
-
+const ghPages = require('gulp-gh-pages');
 const browserSync = require("browser-sync").create();
 
 const srcPath = "src/"
@@ -99,6 +99,10 @@ function fonts() {
 function clean() {
     return del(path.clean)
 }
+function deploy() {
+    return gulp.src('./dist/**/*')
+    .pipe(ghPages());
+}
 
 function watchFiles() {
     gulp.watch([path.watch.html], html)
@@ -123,3 +127,4 @@ exports.clean = clean
 exports.build = build
 exports.watch = watch
 exports.default = watch
+exports.deploy = deploy
